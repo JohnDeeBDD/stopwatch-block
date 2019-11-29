@@ -20,7 +20,9 @@ class UnitTester extends \Codeception\Actor
 {
     use _generated\UnitTesterActions;
 
-   /**
-    * Define custom actions here
-    */
+    public function __construct(\Codeception\Scenario $scenario)
+    {
+        parent::__construct($scenario);
+        require_once('/var/www/html/wp-content/plugins/stopwatch-block/src/ContractorStopwatch/autoloader.php');
+    }
 }
