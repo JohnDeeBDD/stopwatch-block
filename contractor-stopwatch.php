@@ -15,11 +15,8 @@ namespace ContractorStopwatch;
 
 require_once (plugin_dir_path(__FILE__). 'src/ContractorStopwatch/autoloader.php');
 
-//$GutenbergBlock = new GutenbergBlock;
-//$GutenbergBlock->enableBlockFeature();
-
-//$ClassicEditor = new ClassicEditor;
-//$ClassicEditor->enableClassicEditorMetabox();
-
 $Shortcode = new Shortcode;
 $Shortcode->enableShortcodeFeature();
+
+$Api = new Api;
+$Api->enableApiRoutes();
