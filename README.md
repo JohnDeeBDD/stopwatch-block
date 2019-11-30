@@ -1,7 +1,3 @@
-
-## 
-HTTP POST
-
 # Save Data
 
 This endpoint collects the data for the stop watch.
