@@ -43,6 +43,9 @@ Post ID with 3 stopwatch sessions
    ]
 }
 ```
+![WordPress Screenshot](https://raw.githubusercontent.com/JohnDeeBDD/stopwatch-block/master/stopwatch-data.png)
+
+https://generalchicken.net/wp-content/uploads/stopwatch-data-scaled.png
 
 ## Success Response
 
