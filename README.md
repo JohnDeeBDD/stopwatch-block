@@ -1,4 +1,11 @@
-# Save Data
+This is a WordPress plugin that displays a frontend "stopwatch". 
+
+# Usage
+
+To activate the plugin, enter the WordPress shortcode ``[contractor-stopwatch]`` in the content of your post.
+![Frontend](https://raw.githubusercontent.com/JohnDeeBDD/stopwatch-block/master/clock-face.png)
+
+# API: Save Data
 
 This endpoint collects the data for the stop watch.
 
