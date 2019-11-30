@@ -41,6 +41,9 @@ Post ID with 3 stopwatch sessions
 ```
 ![WordPress Screenshot](https://raw.githubusercontent.com/JohnDeeBDD/stopwatch-block/master/stopwatch-data.png)
 
+## Javascript Hidden Variable
+``postID`` is a hidden variable available on the frontend.
+
 ## Success Response
 
 **Code** : `200 OK`
