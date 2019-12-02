@@ -28,3 +28,6 @@
 .lighter {
     background: #CC0000
 }
+.sessionspan:hover {
+    color: blue;
+}
