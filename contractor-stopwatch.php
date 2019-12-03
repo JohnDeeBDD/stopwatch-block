@@ -21,4 +21,4 @@ $Shortcode->enableShortcodeFeature();
 $Api = new Api;
 $Api->enableApiRoutes();
 
-$WooImporter = new WooImporter;
+//$WooImporter = new WooImporter;

@@ -1,12 +1,3 @@
-<?php
-
-namespace ContractorStopwatch;
-
-class WooImporter {
-    
-}
-
-/*
 $order->set_date_created($creation_tsz);
 
 $order->set_address( $address, 'billing' );
@@ -48,4 +39,13 @@ $order->calculate_totals();
 $order->update_status('on-hold');
 
 $order->save();
-*/
+
+Many platforms have a "share to" button available to users.
+
+Blockers:
+Design and assets for share button - SVG assets are recommended
+Endpoint - where does the share go to? What does it do? How does Parler recognize the user?
+
+Is related to, but not required for Single Sing On. 90% of this feature is SSO. If SSO is completed, allows many other features. WordPress has been told that SSO will not be a feature.
+
+Related to oAuth
