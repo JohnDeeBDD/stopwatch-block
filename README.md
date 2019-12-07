@@ -81,3 +81,23 @@ Success!
     }
 }
 ```
+---
+# API: Get Data
+
+This endpoint sends the data to the stop watch.
+
+**URL** : `/wp-json/contractor-stopwatch/v1/get-data`
+
+**Method** : `POST`
+
+**Auth required** : pending - ignore for now
+
+**Data**
+
+argument name| type | description| required
+------------ | --------- | ------- | -------
+postID | integer | the WordPress post ID | yes 
+
+# Data Example
+
+This endpoint returns the exact data submitted in /save-data
