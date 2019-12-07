@@ -26,27 +26,16 @@ sessions['start'] | unix timestamp | the start of a session | no
 sessions['stop'] | unix timestamp | if not there, session is running | no
 
 **Data Example**
-Post ID with 3 stopwatch sessions
+3 stopwatch sessions
 ```json
-{ 
-   "postID":55,
-   "sessions":[ 
-      { 
-         "start":1575117693,
-         "stop":1575117753
-      },
-      { 
-         "start":1575118293,
-         "stop":1575118393
-      },
-      { 
-         "start":1575118573,
-         "stop":1575118692
-      }
-   ]
-}
+[ 
+   1575676690324,
+   1575676691682,
+   1575676692360,
+   1575676693925
+]
 ```
-![WordPress Screenshot](https://raw.githubusercontent.com/JohnDeeBDD/stopwatch-block/master/stopwatch-data.png)
+![WordPress Screenshot](https://raw.githubusercontent.com/JohnDeeBDD/stopwatch-block/master/stopwatch-data2.png)
 
 ## Javascript Hidden Variable
 ``postID`` is a hidden variable available on the frontend.
