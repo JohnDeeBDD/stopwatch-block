@@ -15,10 +15,9 @@ namespace ContractorStopwatch;
 
 require_once (plugin_dir_path(__FILE__). 'src/ContractorStopwatch/autoloader.php');
 
+
 $Shortcode = new Shortcode;
 $Shortcode->enableShortcodeFeature();
 
 $Api = new Api;
 $Api->enableApiRoutes();
-
-//$WooImporter = new WooImporter;

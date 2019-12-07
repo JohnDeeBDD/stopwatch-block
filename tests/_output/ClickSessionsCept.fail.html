@@ -1,0 +1,365 @@
+<html lang="en-US"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<title>General Chicken – Behavior Driven Development in WordPress</title>
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="General Chicken » Feed" href="https://generalchicken.net/feed/">
+<link rel="alternate" type="application/rss+xml" title="General Chicken » Comments Feed" href="https://generalchicken.net/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/generalchicken.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://generalchicken.net/wp-includes/js/wp-emoji-release.min.js?ver=5.3" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="https://generalchicken.net/wp-includes/css/dist/block-library/style.min.css?ver=5.3" type="text/css" media="all">
+<link rel="stylesheet" id="wc-block-style-css" href="https://generalchicken.net/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style.css?ver=2.4.5" type="text/css" media="all">
+<link rel="stylesheet" id="woocommerce-layout-css" href="https://generalchicken.net/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=3.8.1" type="text/css" media="all">
+<link rel="stylesheet" id="woocommerce-smallscreen-css" href="https://generalchicken.net/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=3.8.1" type="text/css" media="only screen and (max-width: 768px)">
+<link rel="stylesheet" id="woocommerce-general-css" href="https://generalchicken.net/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=3.8.1" type="text/css" media="all">
+<style id="woocommerce-inline-inline-css" type="text/css">
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel="stylesheet" id="parent-style-css" href="https://generalchicken.net/wp-content/themes/responsive-kubrick/style.css?ver=5.3" type="text/css" media="all">
+<link rel="stylesheet" id="child-style-css" href="https://generalchicken.net/wp-content/themes/rk-child/style.css?ver=1.0" type="text/css" media="all">
+<link rel="stylesheet" id="responsive-kubrick-style-css" href="https://generalchicken.net/wp-content/themes/rk-child/style.css?ver=1.6" type="text/css" media="all">
+<script type="text/javascript" src="https://generalchicken.net/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>
+<script type="text/javascript" src="https://generalchicken.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
+<link rel="https://api.w.org/" href="https://generalchicken.net/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://generalchicken.net/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://generalchicken.net/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.3">
+<meta name="generator" content="WooCommerce 3.8.1">
+		<style type="text/css">
+			.site-header {
+				background: linear-gradient(to bottom,  0%,  100%);
+			}
+		</style>
+			<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<link rel="icon" href="https://generalchicken.net/wp-content/uploads/cropped-redgreenrefacor-1-32x32.png" sizes="32x32">
+<link rel="icon" href="https://generalchicken.net/wp-content/uploads/cropped-redgreenrefacor-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://generalchicken.net/wp-content/uploads/cropped-redgreenrefacor-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://generalchicken.net/wp-content/uploads/cropped-redgreenrefacor-1-270x270.png">
+</head>
+
+<body data-rsssl="1" class="home blog theme-responsive-kubrick woocommerce-js hfeed">
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+
+		<div class="site-branding">
+								<h1 class="site-title">
+						<a href="https://generalchicken.net/" rel="home">General Chicken</a>
+					</h1>
+											<p class="site-description">Behavior Driven Development in WordPress</p>
+								<nav>
+			<div class="menu-maino-container"><ul id="primary-menu" class="menu"><li id="menu-item-16169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16169"><a href="https://generalchicken.net/hire-john/">Hire John Dee</a></li>
+<li id="menu-item-16170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16170"><a href="https://generalchicken.net/tuts/">Tutorials</a></li>
+<li id="menu-item-16536" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16536"><a href="https://generalchicken.net/tag/plugin/">Plugins</a></li>
+</ul></div>		</nav><!-- #site-navigation -->
+			<div class="clear"></div>
+		</div><!-- .site-branding -->
+
+	</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-15519" class="post-15519 post type-post status-publish format-standard has-post-thumbnail sticky hentry category-projects category-software tag-bdd tag-behavior-driven-development tag-codeception tag-dev-facing tag-php tag-plugin tag-software tag-wordpress tag-wp-codeception">
+
+	<img width="429" height="117" src="https://generalchicken.net/wp-content/uploads/wordpressorg.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="WordPress" srcset="https://generalchicken.net/wp-content/uploads/wordpressorg.png 429w, https://generalchicken.net/wp-content/uploads/wordpressorg-350x95.png 350w, https://generalchicken.net/wp-content/uploads/wordpressorg-150x41.png 150w, https://generalchicken.net/wp-content/uploads/wordpressorg-300x82.png 300w" sizes="(max-width: 429px) 100vw, 429px">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/change-admin-email/" rel="bookmark">WordPress Plugin: Change Admin Email</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/change-admin-email/" rel="bookmark"><time class="entry-date published" datetime="2018-03-13T00:13:49-07:00">March 13, 2018</time><time class="updated" datetime="2019-04-25T15:48:48-07:00">April 25, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>General Chicken publishes a plugin in the .org repo: Change Admin Email Setting Without Outbound Email </p>
+
+        <a href="https://generalchicken.net/change-admin-email/" class="read" title="Read more: WordPress Plugin: Change Admin Email">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/projects/" rel="category tag">Projects</a>, <a href="https://generalchicken.net/category/software/" rel="category tag">Software</a></span><span class="tags-links"> | Tagged <a href="https://generalchicken.net/tag/bdd/" rel="tag">BDD</a>, <a href="https://generalchicken.net/tag/behavior-driven-development/" rel="tag">Behavior Driven Development</a>, <a href="https://generalchicken.net/tag/codeception/" rel="tag">Codeception</a>, <a href="https://generalchicken.net/tag/dev-facing/" rel="tag">dev facing</a>, <a href="https://generalchicken.net/tag/php/" rel="tag">PHP</a>, <a href="https://generalchicken.net/tag/plugin/" rel="tag">plugin</a>, <a href="https://generalchicken.net/tag/software/" rel="tag">software</a>, <a href="https://generalchicken.net/tag/wordpress/" rel="tag">WordPress</a>, <a href="https://generalchicken.net/tag/wp-codeception/" rel="tag">WP-Codeception</a></span><span class="comments-link"><a href="https://generalchicken.net/change-admin-email/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-22133" class="post-22133 post type-post status-publish format-link has-post-thumbnail hentry category-help-articles tag-cookies tag-gdpr tag-quora post_format-post-format-link">
+
+	<img width="1200" height="800" src="https://generalchicken.net/wp-content/uploads/quoralogo.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://generalchicken.net/wp-content/uploads/quoralogo.jpg 1200w, https://generalchicken.net/wp-content/uploads/quoralogo-150x100.jpg 150w, https://generalchicken.net/wp-content/uploads/quoralogo-300x200.jpg 300w, https://generalchicken.net/wp-content/uploads/quoralogo-768x512.jpg 768w, https://generalchicken.net/wp-content/uploads/quoralogo-1024x683.jpg 1024w" sizes="(max-width: 1200px) 100vw, 1200px">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/quora-why-do-american-bloggers-include-disclosure-for-cookies/" rel="bookmark">Quora: Why do American bloggers include disclosure for cookies?</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/quora-why-do-american-bloggers-include-disclosure-for-cookies/" rel="bookmark"><time class="entry-date published updated" datetime="2019-10-19T14:36:44-07:00">October 19, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>Read John Dee's answer to Why do American bloggers include disclosure for cookies? on Quora</p>
+
+        <a href="https://generalchicken.net/quora-why-do-american-bloggers-include-disclosure-for-cookies/" class="read" title="Read more: Quora: Why do American bloggers include disclosure for cookies?">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/help-articles/" rel="category tag">Help Articles</a></span><span class="tags-links"> | Tagged <a href="https://generalchicken.net/tag/cookies/" rel="tag">cookies</a>, <a href="https://generalchicken.net/tag/gdpr/" rel="tag">GDPR</a>, <a href="https://generalchicken.net/tag/quora/" rel="tag">Quora</a></span><span class="comments-link"><a href="https://generalchicken.net/quora-why-do-american-bloggers-include-disclosure-for-cookies/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-22130" class="post-22130 post type-post status-publish format-link has-post-thumbnail hentry category-help-articles tag-quora tag-software tag-wordpress post_format-post-format-link">
+
+	<img width="1200" height="800" src="https://generalchicken.net/wp-content/uploads/quoralogo.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://generalchicken.net/wp-content/uploads/quoralogo.jpg 1200w, https://generalchicken.net/wp-content/uploads/quoralogo-150x100.jpg 150w, https://generalchicken.net/wp-content/uploads/quoralogo-300x200.jpg 300w, https://generalchicken.net/wp-content/uploads/quoralogo-768x512.jpg 768w, https://generalchicken.net/wp-content/uploads/quoralogo-1024x683.jpg 1024w" sizes="(max-width: 1200px) 100vw, 1200px">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/quora-do-page-builders-slow-down-my-website/" rel="bookmark">Quora: Do page builders slow down my website or is it a myth?</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/quora-do-page-builders-slow-down-my-website/" rel="bookmark"><time class="entry-date published" datetime="2019-10-19T14:34:01-07:00">October 19, 2019</time><time class="updated" datetime="2019-10-28T14:11:20-07:00">October 28, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>Read John Dee's answer to Does a page builder slow down a WordPress website or is it a myth? on Quora</p>
+
+        <a href="https://generalchicken.net/quora-do-page-builders-slow-down-my-website/" class="read" title="Read more: Quora: Do page builders slow down my website or is it a myth?">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/help-articles/" rel="category tag">Help Articles</a></span><span class="tags-links"> | Tagged <a href="https://generalchicken.net/tag/quora/" rel="tag">Quora</a>, <a href="https://generalchicken.net/tag/software/" rel="tag">software</a>, <a href="https://generalchicken.net/tag/wordpress/" rel="tag">WordPress</a></span><span class="comments-link"><a href="https://generalchicken.net/quora-do-page-builders-slow-down-my-website/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-22126" class="post-22126 post type-post status-publish format-quote has-post-thumbnail hentry category-help-articles tag-quora post_format-post-format-quote">
+
+	<img width="1200" height="800" src="https://generalchicken.net/wp-content/uploads/quoralogo.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://generalchicken.net/wp-content/uploads/quoralogo.jpg 1200w, https://generalchicken.net/wp-content/uploads/quoralogo-150x100.jpg 150w, https://generalchicken.net/wp-content/uploads/quoralogo-300x200.jpg 300w, https://generalchicken.net/wp-content/uploads/quoralogo-768x512.jpg 768w, https://generalchicken.net/wp-content/uploads/quoralogo-1024x683.jpg 1024w" sizes="(max-width: 1200px) 100vw, 1200px">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/how-track-cookies/" rel="bookmark">How do I track the consent of an anonymous user’s cookies consent?</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/how-track-cookies/" rel="bookmark"><time class="entry-date published" datetime="2019-10-19T13:59:47-07:00">October 19, 2019</time><time class="updated" datetime="2019-10-19T14:01:44-07:00">October 19, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>John answers a question on Quora: Read John Dee's answer to How do I track the consent of an anonymous user's cookies consent? on Quora</p>
+
+        <a href="https://generalchicken.net/how-track-cookies/" class="read" title="Read more: How do I track the consent of an anonymous user’s cookies consent?">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/help-articles/" rel="category tag">Help Articles</a></span><span class="tags-links"> | Tagged <a href="https://generalchicken.net/tag/quora/" rel="tag">Quora</a></span><span class="comments-link"><a href="https://generalchicken.net/how-track-cookies/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-21239" class="post-21239 post type-post status-publish format-standard has-post-thumbnail hentry category-projects category-software tag-dev-facing tag-plugin tag-software tag-wordpress">
+
+	<img width="1200" height="800" src="https://generalchicken.net/wp-content/uploads/quoralogo.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://generalchicken.net/wp-content/uploads/quoralogo.jpg 1200w, https://generalchicken.net/wp-content/uploads/quoralogo-150x100.jpg 150w, https://generalchicken.net/wp-content/uploads/quoralogo-300x200.jpg 300w, https://generalchicken.net/wp-content/uploads/quoralogo-768x512.jpg 768w, https://generalchicken.net/wp-content/uploads/quoralogo-1024x683.jpg 1024w" sizes="(max-width: 1200px) 100vw, 1200px">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/wordpress-plugin/" rel="bookmark">WordPress plugin: Randomize Main Loop Order</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/wordpress-plugin/" rel="bookmark"><time class="entry-date published" datetime="2019-09-29T17:12:38-07:00">September 29, 2019</time><time class="updated" datetime="2019-10-20T04:34:41-07:00">October 20, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>This is a plugin I made in response to a Quora post.</p>
+
+        <a href="https://generalchicken.net/wordpress-plugin/" class="read" title="Read more: WordPress plugin: Randomize Main Loop Order">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/projects/" rel="category tag">Projects</a>, <a href="https://generalchicken.net/category/software/" rel="category tag">Software</a></span><span class="tags-links"> | Tagged <a href="https://generalchicken.net/tag/dev-facing/" rel="tag">dev facing</a>, <a href="https://generalchicken.net/tag/plugin/" rel="tag">plugin</a>, <a href="https://generalchicken.net/tag/software/" rel="tag">software</a>, <a href="https://generalchicken.net/tag/wordpress/" rel="tag">WordPress</a></span><span class="comments-link"><a href="https://generalchicken.net/wordpress-plugin/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-16539" class="post-16539 post type-post status-publish format-standard has-post-thumbnail hentry category-projects category-software tag-dev-facing tag-plugin tag-software tag-wordpress">
+
+	<img width="540" height="123" src="https://generalchicken.net/wp-content/uploads/540px-WordPress_logo.svg_.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="WordPress" srcset="https://generalchicken.net/wp-content/uploads/540px-WordPress_logo.svg_.png 540w, https://generalchicken.net/wp-content/uploads/540px-WordPress_logo.svg_-150x34.png 150w, https://generalchicken.net/wp-content/uploads/540px-WordPress_logo.svg_-300x68.png 300w" sizes="(max-width: 540px) 100vw, 540px">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/better-error-messages/" rel="bookmark">Better Error Messages</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/better-error-messages/" rel="bookmark"><time class="entry-date published" datetime="2019-01-13T21:39:01-08:00">January 13, 2019</time><time class="updated" datetime="2019-10-20T04:38:10-07:00">October 20, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>This plugin adds WordPress CSS to PHP errors.</p>
+
+        <a href="https://generalchicken.net/better-error-messages/" class="read" title="Read more: Better Error Messages">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/projects/" rel="category tag">Projects</a>, <a href="https://generalchicken.net/category/software/" rel="category tag">Software</a></span><span class="tags-links"> | Tagged <a href="https://generalchicken.net/tag/dev-facing/" rel="tag">dev facing</a>, <a href="https://generalchicken.net/tag/plugin/" rel="tag">plugin</a>, <a href="https://generalchicken.net/tag/software/" rel="tag">software</a>, <a href="https://generalchicken.net/tag/wordpress/" rel="tag">WordPress</a></span><span class="comments-link"><a href="https://generalchicken.net/better-error-messages/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-16251" class="post-16251 post type-post status-publish format-standard has-post-thumbnail hentry category-reviews tag-dev-facing tag-gutenberg tag-wordpress">
+
+	<img width="540" height="123" src="https://generalchicken.net/wp-content/uploads/540px-WordPress_logo.svg_.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="WordPress" srcset="https://generalchicken.net/wp-content/uploads/540px-WordPress_logo.svg_.png 540w, https://generalchicken.net/wp-content/uploads/540px-WordPress_logo.svg_-150x34.png 150w, https://generalchicken.net/wp-content/uploads/540px-WordPress_logo.svg_-300x68.png 300w" sizes="(max-width: 540px) 100vw, 540px">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/what-do-you-think-of-gutenberg/" rel="bookmark">What do you think of Gutenberg?</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/what-do-you-think-of-gutenberg/" rel="bookmark"><time class="entry-date published" datetime="2018-12-10T00:31:49-08:00">December 10, 2018</time><time class="updated" datetime="2019-10-12T18:09:00-07:00">October 12, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>Gutenberg is the end of WordPress. It’s time to fork the CMS away from Automattic.</p>
+
+        <a href="https://generalchicken.net/what-do-you-think-of-gutenberg/" class="read" title="Read more: What do you think of Gutenberg?">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/reviews/" rel="category tag">Reviews</a></span><span class="tags-links"> | Tagged <a href="https://generalchicken.net/tag/dev-facing/" rel="tag">dev facing</a>, <a href="https://generalchicken.net/tag/gutenberg/" rel="tag">Gutenberg</a>, <a href="https://generalchicken.net/tag/wordpress/" rel="tag">WordPress</a></span><span class="comments-link"><a href="https://generalchicken.net/what-do-you-think-of-gutenberg/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-14985" class="post-14985 post type-post status-publish format-standard has-post-thumbnail hentry category-help-articles category-software tag-bdd tag-behavior-driven-development tag-biz-facing tag-devops tag-software tag-tdd tag-test-driven-development tag-wordpress">
+
+	<img width="640" height="384" src="https://generalchicken.net/wp-content/uploads/stakeholder.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://generalchicken.net/wp-content/uploads/stakeholder.png 640w, https://generalchicken.net/wp-content/uploads/stakeholder-150x90.png 150w, https://generalchicken.net/wp-content/uploads/stakeholder-300x180.png 300w" sizes="(max-width: 640px) 100vw, 640px">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/the-feature/" rel="bookmark">Business Stakeholders: How to Describe a Software FEATURE</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/the-feature/" rel="bookmark"><time class="entry-date published" datetime="2018-12-08T06:58:10-08:00">December 8, 2018</time><time class="updated" datetime="2019-10-01T13:57:48-07:00">October 1, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>A feature from the biz perspective</p>
+
+        <a href="https://generalchicken.net/the-feature/" class="read" title="Read more: Business Stakeholders: How to Describe a Software FEATURE">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/help-articles/" rel="category tag">Help Articles</a>, <a href="https://generalchicken.net/category/software/" rel="category tag">Software</a></span><span class="tags-links"> | Tagged <a href="https://generalchicken.net/tag/bdd/" rel="tag">BDD</a>, <a href="https://generalchicken.net/tag/behavior-driven-development/" rel="tag">Behavior Driven Development</a>, <a href="https://generalchicken.net/tag/biz-facing/" rel="tag">biz facing</a>, <a href="https://generalchicken.net/tag/devops/" rel="tag">DevOps</a>, <a href="https://generalchicken.net/tag/software/" rel="tag">software</a>, <a href="https://generalchicken.net/tag/tdd/" rel="tag">TDD</a>, <a href="https://generalchicken.net/tag/test-driven-development/" rel="tag">Test Driven Development</a>, <a href="https://generalchicken.net/tag/wordpress/" rel="tag">WordPress</a></span><span class="comments-link"><a href="https://generalchicken.net/the-feature/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-16005" class="post-16005 post type-post status-publish format-standard hentry category-uncategorized">
+
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/seo-article/" rel="bookmark">SEO Article Type “H” Test Article</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/seo-article/" rel="bookmark"><time class="entry-date published updated" datetime="2018-10-07T20:20:06-07:00">October 7, 2018</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>You’ll get an extra hour added onto your time for reading these directions. DO NOT UNDER AND CIRCUMSTANCES COPY AND PASTE ANYTHING. You can copy stuff by re-writing it, or re-ordering sentences, but not word for word. You will be fired and reported to UpWork. If you submit poor but original work, I will pay […]</p>
+
+        <a href="https://generalchicken.net/seo-article/" class="read" title="Read more: SEO Article Type “H” Test Article">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/uncategorized/" rel="category tag">Uncategorized</a></span><span class="comments-link"><a href="https://generalchicken.net/seo-article/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-15830" class="post-15830 post type-post status-publish format-standard hentry category-help-articles tag-amazon-web-services tag-aws tag-bdd tag-behavior-driven-development tag-biz-facing tag-codeception tag-devops tag-php tag-tdd tag-test-driven-development tag-wordpress tag-workflow tag-wp-codeception">
+
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/wordpress-tdd/" rel="bookmark">Test Driven Development in WordPress</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/wordpress-tdd/" rel="bookmark"><time class="entry-date published updated" datetime="2018-08-23T14:43:39-07:00">August 23, 2018</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>John explains how to do TDD in WordPress</p>
+
+        <a href="https://generalchicken.net/wordpress-tdd/" class="read" title="Read more: Test Driven Development in WordPress">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/help-articles/" rel="category tag">Help Articles</a></span><span class="tags-links"> | Tagged <a href="https://generalchicken.net/tag/amazon-web-services/" rel="tag">Amazon Web Services</a>, <a href="https://generalchicken.net/tag/aws/" rel="tag">AWS</a>, <a href="https://generalchicken.net/tag/bdd/" rel="tag">BDD</a>, <a href="https://generalchicken.net/tag/behavior-driven-development/" rel="tag">Behavior Driven Development</a>, <a href="https://generalchicken.net/tag/biz-facing/" rel="tag">biz facing</a>, <a href="https://generalchicken.net/tag/codeception/" rel="tag">Codeception</a>, <a href="https://generalchicken.net/tag/devops/" rel="tag">DevOps</a>, <a href="https://generalchicken.net/tag/php/" rel="tag">PHP</a>, <a href="https://generalchicken.net/tag/tdd/" rel="tag">TDD</a>, <a href="https://generalchicken.net/tag/test-driven-development/" rel="tag">Test Driven Development</a>, <a href="https://generalchicken.net/tag/wordpress/" rel="tag">WordPress</a>, <a href="https://generalchicken.net/tag/workflow/" rel="tag">workflow</a>, <a href="https://generalchicken.net/tag/wp-codeception/" rel="tag">WP-Codeception</a></span><span class="comments-link"><a href="https://generalchicken.net/wordpress-tdd/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-15770" class="post-15770 post type-post status-publish format-standard hentry category-reviews category-software tag-dev-facing tag-software tag-trac tag-wordpress tag-wordpress-foundation">
+
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://generalchicken.net/vanishing-gdpr-checkbox/" rel="bookmark">Vanishing Checkbox in WordPress Comment Form</a></h2>		<div class="entry-meta">
+			<span class="posted-on"><a href="https://generalchicken.net/vanishing-gdpr-checkbox/" rel="bookmark"><time class="entry-date published" datetime="2018-08-14T16:19:22-07:00">August 14, 2018</time><time class="updated" datetime="2019-11-01T14:04:36-07:00">November 1, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://generalchicken.net/author/johndee/">JohnDee</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>This is the tale of the incredible vanishing checkbox, on WordPress versions 4.9.6 and 4.9.8. WordPress uses cookies by default to log in users and track who is making a comment. Cookies are small snippets of data kept on a user’s browser. WordPress is trying to deal with the new GDPR regulations. It seems from […]</p>
+
+        <a href="https://generalchicken.net/vanishing-gdpr-checkbox/" class="read" title="Read more: Vanishing Checkbox in WordPress Comment Form">Continue reading</a>
+
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://generalchicken.net/category/reviews/" rel="category tag">Reviews</a>, <a href="https://generalchicken.net/category/software/" rel="category tag">Software</a></span><span class="tags-links"> | Tagged <a href="https://generalchicken.net/tag/dev-facing/" rel="tag">dev facing</a>, <a href="https://generalchicken.net/tag/software/" rel="tag">software</a>, <a href="https://generalchicken.net/tag/trac/" rel="tag">Trac</a>, <a href="https://generalchicken.net/tag/wordpress/" rel="tag">WordPress</a>, <a href="https://generalchicken.net/tag/wordpress-foundation/" rel="tag">WordPress Foundation</a></span><span class="comments-link"><a href="https://generalchicken.net/vanishing-gdpr-checkbox/#respond"> | Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+	<nav class="navigation pagination" role="navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Posts navigation</h2>
+		<div class="nav-links"><span aria-current="page" class="page-numbers current">1</span>
+<a class="page-numbers" href="https://generalchicken.net/page/2/">2</a>
+<a class="page-numbers" href="https://generalchicken.net/page/3/">3</a>
+<a class="next page-numbers" href="https://generalchicken.net/page/2/">Next</a></div>
+	</nav>
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+<aside id="secondary" class="widget-area" role="complementary">
+	<section id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://generalchicken.net/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form></section>		<section id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+											<li>
+					<a href="https://generalchicken.net/quora-why-do-american-bloggers-include-disclosure-for-cookies/">Quora: Why do American bloggers include disclosure for cookies?</a>
+									</li>
+											<li>
+					<a href="https://generalchicken.net/quora-do-page-builders-slow-down-my-website/">Quora: Do page builders slow down my website or is it a myth?</a>
+									</li>
+											<li>
+					<a href="https://generalchicken.net/how-track-cookies/">How do I track the consent of an anonymous user’s cookies consent?</a>
+									</li>
+											<li>
+					<a href="https://generalchicken.net/wordpress-plugin/">WordPress plugin: Randomize Main Loop Order</a>
+									</li>
+											<li>
+					<a href="https://generalchicken.net/better-error-messages/">Better Error Messages</a>
+									</li>
+					</ul>
+		</section></aside><!-- #secondary -->
+	</div><!-- #content -->
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			© 2019 General Chicken	
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+	<script type="text/javascript">
+		var c = document.body.className;
+		c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+		document.body.className = c;
+	</script>
+	<script type="text/javascript" src="https://generalchicken.net/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/generalchicken.net\/cart\/","is_cart":"","cart_redirect_after_add":"yes"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://generalchicken.net/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=3.8.1"></script>
+<script type="text/javascript" src="https://generalchicken.net/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://generalchicken.net/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.8.1"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_283e0c1879e6553d85c1e249826dc760","fragment_name":"wc_fragments_283e0c1879e6553d85c1e249826dc760","request_timeout":"5000"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://generalchicken.net/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.8.1"></script>
+<script type="text/javascript" src="https://generalchicken.net/wp-includes/js/wp-embed.min.js?ver=5.3"></script>
+
+
+</body></html>

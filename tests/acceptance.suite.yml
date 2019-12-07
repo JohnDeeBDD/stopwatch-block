@@ -1,13 +1,38 @@
-# Codeception Test Suite Configuration
-#
-# Suite for acceptance tests.
-# Perform tests in browser using the WebDriver or PhpBrowser.
-# If you need both WebDriver and PHPBrowser tests - create a separate suite.
-
-actor: AcceptanceTester
+class_name: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser:
-            url: http://localhost/myapp
         - \Helper\Acceptance
-    step_decorators: ~        
+        - WPDb
+        - WPWebDriver
+        - WPCLI
+    config:
+        WPCLI:
+            path: /var/www/html/
+            throw: true
+        WPDb:
+            dsn: 'mysql:host=localhost;dbname=wordpress_unit_test'
+            user: wordpressuser
+            password: password
+            dump: tests/_data/dump.sql
+            populate: false
+            cleanup: false
+            url: 'http://ec2-52-90-97-71.compute-1.amazonaws.com/'
+            tablePrefix: wp_
+        WPWebDriver:
+            url: 'http://ec2-52-90-97-71.compute-1.amazonaws.com/'
+            #url: "%DB_USERNAME%"'http://ec2-52-90-97-71.compute-1.amazonaws.com/'
+            window_size: 800,480
+            adminUsername: 'admintester'
+            adminPassword: 'password123$'
+            adminPath: /wp-admin
+            port: 4444 #chromedriver --url-base=/wd/hub
+            #browser: phantomjs #./phantomjs --webdriver=4444
+            #xvfb-run java -Dwebdriver.chrome.driver=/var/www/chromedriver -jar selenium.jar
+            ## ^^ requires the corect versions of chromedriver and chrome
+            browser: chrome #java -jar selenium.jar
+                capabilities:
+                    chromeOptions:
+                        args: ["--headless", "--disable-gpu", "--disable-dev-shm-usage", "--no-sandbox"]
+                        #binary: "/usr/bin/google-chrome" # Path to Chrome binary
+                        binary: "/var/www/chromedriver" # Path to Chrome binary
+            #binary: "//Applications/MAMP/htdocs/wp-content/plugins/parler-wordpress-php/chromedriver"

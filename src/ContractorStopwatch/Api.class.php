@@ -31,7 +31,7 @@ class Api{
                 'contractor-stopwatch',
                 'v1/get-data',
                 array(
-                    'methods' => 'GET',
+                    'methods' => array('GET', ' POST'),
                     'callback' =>
                         array(
                             $this,
@@ -45,6 +45,27 @@ class Api{
             );
         }
         );
+
+        add_action( 'rest_api_init', function () {
+            register_rest_route(
+                'contractor-stopwatch',
+                'v1/reset-clock',
+                array(
+                    'methods' => 'GET',
+                    'callback' =>
+                        array(
+                            $this,
+                            'resetClock',
+                        ),
+                    'permission_callback' =>
+                        function () {
+                            return true;
+                        }
+                )
+            );
+        }
+        );
+
     }
 
     public function moveDataInsideForGet(){
@@ -65,5 +86,10 @@ class Api{
     public function getData($postID){
         $data = get_post_meta( $postID, "stopwatchData", true);
         return $data;
+    }
+
+    public function resetClock(){
+        $postID = $_REQUEST['postID'];
+
     }
 }
