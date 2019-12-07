@@ -19,14 +19,12 @@ This endpoint collects the data for the stop watch.
 
 argument name| type | description| required
 ------------ | --------- | ------- | -------
-data | json array | session state | yes
-data['postID'] | integer | the WordPress post ID | yes [or data will not be saved]
-data['sessions'] | array | the stopwatch sessions | no
-sessions['start'] | unix timestamp | the start of a session | no
-sessions['stop'] | unix timestamp | if not there, session is running | no
+postID | integer | the WordPress post ID | yes [or data will not be saved]
+startStopArray | array | the stopwatch sessions | no
 
 **Data Example**
-3 stopwatch sessions
+2 compleated stopwatch sessions
+Even number of entries = clock is NOT running
 ```json
 [ 
    1575676690324,
@@ -35,6 +33,22 @@ sessions['stop'] | unix timestamp | if not there, session is running | no
    1575676693925
 ]
 ```
+
+1 compleate session + start time
+Odd number of entries = clock IS running
+```json
+[ 
+   1575676690324,
+   1575676691682,
+   1575676692360
+]
+```
+
+Clock has not started yet / reset state
+```json
+[]
+```
+
 ![WordPress Screenshot](https://raw.githubusercontent.com/JohnDeeBDD/stopwatch-block/master/stopwatch-data2.png)
 
 ## Javascript Hidden Variable
