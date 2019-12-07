@@ -22,7 +22,8 @@ argument name| type | description| required
 postID | integer | the WordPress post ID | yes [or data will not be saved]
 startStopArray | array | the stopwatch sessions | no
 
-**Data Example**<br />
+# Data Example
+
 2 compleated stopwatch sessions<br />
 Even number of entries = clock is NOT running<br />
 ```json
@@ -33,6 +34,7 @@ Even number of entries = clock is NOT running<br />
    1575676693925
 ]
 ```
+![WordPress Screenshot](https://raw.githubusercontent.com/JohnDeeBDD/stopwatch-block/master/stopwatch-data2.png)
 ---
 1 compleate session + start time<br />
 Odd number of entries = clock IS running<br />
@@ -48,9 +50,6 @@ Clock has not started yet / reset state<br />
 ```json
 []
 ```
-
-![WordPress Screenshot](https://raw.githubusercontent.com/JohnDeeBDD/stopwatch-block/master/stopwatch-data2.png)
-
 ## Javascript Hidden Variable
 ``postID`` is a hidden variable available on the frontend.
 
