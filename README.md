@@ -58,9 +58,11 @@ Clock has not started yet / reset state<br />
 
 **Code** : `200 OK`
 
-**Content** :
+**Content**
 
-"Success!"
+```
+Success!
+```
 ---
 ## Error
 
