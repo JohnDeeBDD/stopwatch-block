@@ -50,19 +50,19 @@ Clock has not started yet / reset state<br />
 ```json
 []
 ```
-## Javascript Hidden Variable
+# Javascript Hidden Variable
 ``postID`` is a hidden variable available on the frontend.
 
-## Success Response
+# RESPONSES
+## Success
 
 **Code** : `200 OK`
 
 **Content** :
 
 "Success!"
-
-
-## Error Response
+---
+## Error
 
 **Condition** : typo or some other error
 
