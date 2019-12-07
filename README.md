@@ -51,7 +51,7 @@ Clock has not started yet / reset state<br />
 []
 ```
 # Javascript Hidden Variable
-``postID`` is a hidden variable available on the frontend.
+``postID`` is a hidden variable available on the frontend, sent from the server. It is the WordPress post ID on the server. It must be sent back to the server when sending data.
 
 # RESPONSES
 ## Success
