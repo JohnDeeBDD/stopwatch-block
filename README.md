@@ -22,9 +22,9 @@ argument name| type | description| required
 postID | integer | the WordPress post ID | yes [or data will not be saved]
 startStopArray | array | the stopwatch sessions | no
 
-**Data Example**
-2 compleated stopwatch sessions
-Even number of entries = clock is NOT running
+**Data Example**<br />
+2 compleated stopwatch sessions<br />
+Even number of entries = clock is NOT running<br />
 ```json
 [ 
    1575676690324,
@@ -34,8 +34,8 @@ Even number of entries = clock is NOT running
 ]
 ```
 
-1 compleate session + start time
-Odd number of entries = clock IS running
+1 compleate session + start time<br />
+Odd number of entries = clock IS running<br />
 ```json
 [ 
    1575676690324,
@@ -44,7 +44,7 @@ Odd number of entries = clock IS running
 ]
 ```
 
-Clock has not started yet / reset state
+Clock has not started yet / reset state<br />
 ```json
 []
 ```
