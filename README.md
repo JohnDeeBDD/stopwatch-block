@@ -33,7 +33,7 @@ Even number of entries = clock is NOT running<br />
    1575676693925
 ]
 ```
-
+---
 1 compleate session + start time<br />
 Odd number of entries = clock IS running<br />
 ```json
@@ -43,7 +43,7 @@ Odd number of entries = clock IS running<br />
    1575676692360
 ]
 ```
-
+---
 Clock has not started yet / reset state<br />
 ```json
 []
