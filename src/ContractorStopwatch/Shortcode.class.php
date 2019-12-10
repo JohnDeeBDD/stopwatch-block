@@ -15,8 +15,12 @@ class Shortcode{
 
         $output = file_get_contents(dirname(__FILE__) . "/contractor-stopwatch.html");
         $ID = get_the_ID();
-        $ID = "<input type = 'hidden' name = 'post_ID' id = 'post_ID' value = '$ID' />";
-        $output = $output . $ID;
+        $hiddenVars = "
+<input type = 'hidden' name = 'post_ID' id = 'post_ID' value = '$ID' />
+<input type = 'hidden' name = 'sw-currency' id = 'sw-currency' value = 'USD'/>
+<input type = 'hidden' name = 'sw-locale' id = 'sw-locale' value = 'en-US' />";
+
+        $output = $output . $hiddenVars;
 
         return $output;
     }

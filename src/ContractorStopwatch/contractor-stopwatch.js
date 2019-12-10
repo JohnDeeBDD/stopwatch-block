@@ -166,10 +166,22 @@ jQuery('document').ready(function(){
         type: 'POST',  // http method
         data: { 'postID': postID},  // data to submit
         success: function (data, status, xhr) {
-            alert(data);
+            console.log( data);
+            data = JSON.parse(data);
+            console.log(typeof data);
+            jQuery.each(data, function() {
+                //alert( this);
+            });
         },
         error: function (jqXhr, textStatus, errorMessage) {
             //alert('failure!');
         }
     });
 });
+
+var swLocale  = jQuery("#sw-locale")[0].getAttribute("value");
+var swCurrency  = jQuery("#sw-currency")[0].getAttribute("value");
+//
+var amount = 1234;
+amount = amount.toLocaleString(swLocale, { style: 'currency', currency: swCurrency });
+//alert(amount);
