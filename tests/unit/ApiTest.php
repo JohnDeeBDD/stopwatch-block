@@ -1,12 +1,6 @@
 <?php
 
-//require_once('/var/www/html/wp-content/plugins/stopwatch-block/src/ContractorStopwatch/autoloader.php');
-
 class ApiTest extends \Codeception\TestCase\WPTestCase{
-    
-  //  public function __construct(){
-        //require_once('/var/www/html/wp-content/plugins/stopwatch-block/src/ContractorStopwatch/autoloader.php');
-   // }
 
     /**
      * @test

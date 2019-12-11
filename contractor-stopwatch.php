@@ -21,3 +21,12 @@ $Shortcode->enableShortcodeFeature();
 
 $Api = new Api;
 $Api->enableApiRoutes();
+
+if(isset($_GET['test'])){
+    $WooImporter = new WooImporter;
+    $data = array(1576022314522,1576022319135,1576022319948,1576022322200,1576022324762,1576022326559);
+    $rate = 11;
+    $WooImporter->data = $data;
+    $WooImporter->rate = $rate;
+    add_action('init', array($WooImporter, 'createOrder'));
+}

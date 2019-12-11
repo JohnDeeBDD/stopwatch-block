@@ -1,51 +1,39 @@
-$order->set_date_created($creation_tsz);
+<?php
 
-$order->set_address( $address, 'billing' );
-$order->set_address( $address, 'shipping' );
-$order->set_currency('GBP');
+namespace ContractorStopwatch;
 
-## ------------- ADD FEE PROCESS ---------------- ##
+use phpDocumentor\Reflection\Types\Integer;
 
-// Get the customer country code
-$country_code = $order->get_shipping_country();
+class WooImporter{
 
-// Set the array for tax calculations
-$calculate_tax_for = array(
-'country' => $country_code,
-'state' => '',
-'postcode' => '',
-'city' => ''
-);
+    public $data = array();
+    public $rate;
 
-// Get a new instance of the WC_Order_Item_Fee Object
-$item_fee = new WC_Order_Item_Fee();
+    public function createOrder(){
 
-$item_fee->set_name( "Fee" ); // Generic fee name
-$item_fee->set_amount( $imported_total_fee ); // Fee amount
-$item_fee->set_tax_class( '' ); // default for ''
-$item_fee->set_tax_status( 'taxable' ); // or 'none'
-$item_fee->set_total( $imported_total_fee ); // Fee amount
+        global $woocommerce;
+        $output = "";
+        $data = $this->data;
+        $rate = $this->rate;
+        $order = wc_create_order();
+        for ($i = 0; $i < count($data); $i++) {
+            $item_fee = new \WC_Order_Item_Fee();
+            $item_fee->set_name(($this->computeLineItem($data[$i], $data[($i+1)], $rate))); // Generic fee name
+            $item_fee->set_total(699); // Fee amount
+            $order->add_item($item_fee);
+            $order->calculate_totals();
+            $order->update_status('on-hold');
+            $order->save();
+            $i++;
+        }
+        return $output;
+    }
 
-// Calculating Fee taxes
-$item_fee->calculate_taxes( $calculate_tax_for );
+    public function computeLineItem($start, $end, $rate){
+        $start = gmdate("Y-m-d\TH:i:s\Z", $start);
+        $end = gmdate("Y-m-d\TH:i:s\Z", $end);
+        $output = "$start - $end @ $$rate/hr";
+        return $output;
+    }
 
-// Add Fee item to the order
-$order->add_item( $item_fee );
-
-## ----------------------------------------------- ##
-
-$order->calculate_totals();
-
-$order->update_status('on-hold');
-
-$order->save();
-
-Many platforms have a "share to" button available to users.
-
-Blockers:
-Design and assets for share button - SVG assets are recommended
-Endpoint - where does the share go to? What does it do? How does Parler recognize the user?
-
-Is related to, but not required for Single Sing On. 90% of this feature is SSO. If SSO is completed, allows many other features. WordPress has been told that SSO will not be a feature.
-
-Related to oAuth
+}
