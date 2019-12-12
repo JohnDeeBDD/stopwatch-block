@@ -22,7 +22,10 @@ $Shortcode->enableShortcodeFeature();
 $Api = new Api;
 $Api->enableApiRoutes();
 
-if(isset($_GET['test'])){
+$WooImporter = new WooImporter;
+$WooImporter->listenForNewOrder();
+
+if(isset($_GET['create-woo-stopwatch-order'])){
     $WooImporter = new WooImporter;
     $data = array(1576022314522,1576022319135,1576022319948,1576022322200,1576022324762,1576022326559);
     $rate = 11;

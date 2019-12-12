@@ -14,8 +14,11 @@
         <div class="resetTimer reset" onclick="resetTimer()">Reset</div>
     </div>
     <br/>
-    <div class="mytimer">Hourly Rate <input type = "text" id = "rate"  value = "10" ></input>
+    <div class="mytimer">Hourly Rate <input type = "text" id = "rate"  name = "rate" value = "10" ></input>
     Total    <input type = "text" id = "total" value = "$0"  readonly></input></div>
+    <div style = "display: none;" id = "create-woo-div">
+        <a id = "create-woo-link" href = "" target = "_blank">Create WooCommerce Order</a>
+    </div>
     <div class="mytimer1">Manual Input: <input type="text" id = "manual_text"><input type="submit" value="Submit" onclick="ManualSubmit()"></div>
 </div>
 

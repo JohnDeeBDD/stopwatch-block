@@ -75,11 +75,13 @@ class Api{
     public function moveDataInsideForPost(){
         $postID = $_REQUEST['postID'];
         $data = $_REQUEST['data'];
-        return ($this->setData($postID, $data));
+        $rate = $_REQUEST['rate'];
+        return ($this->setData($postID, $data, $rate));
     }
 
-    public function setData($postID, $data){
+    public function setData($postID, $data, $rate){
         update_post_meta($postID, "stopwatchData", $data);
+        update_post_meta($postID, "rate", $rate);
         return "Sucess!";
     }
 

@@ -1,0 +1,2 @@
+tests/acceptance/ClickSessionsCept.php
+tests/unit/ApiTest.php:itShouldAcceptStatusUpdate

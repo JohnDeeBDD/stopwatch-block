@@ -9,9 +9,7 @@ var sessionNumber = 0;
 var sessions_id = [];
 var startStopArray = [];
 
-
 function remove_Session($instance) {
-    
     var item = jQuery($instance)[0];
     var id = item.getAttribute("id");
     for (i = 0; i< sessions_id.length; i++) {
@@ -30,6 +28,7 @@ function remove_Session($instance) {
     calc_Wage();
 
 }
+
 function Add_session_onDiv(updatedTime, startTime){
     sessionNumber++;
     var hours = Math.floor(((updatedTime - startTime) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -51,11 +50,12 @@ function Add_session_onDiv(updatedTime, startTime){
 
 function Session_Post_Request(){
     var postID  = jQuery("#post_ID")[0].getAttribute("value");
+    var rate  = jQuery("#rate")[0].getAttribute("value");
 
     var send_data = JSON.stringify(startStopArray);
     jQuery.ajax('/wp-json/contractor-stopwatch/v1/save-data', {
         type: 'POST',  // http method
-        data: { 'postID': postID, 'data': send_data },  // data to submit
+        data: { 'postID': postID, 'data': send_data, 'rate': rate},  // data to submit
         success: function (data, status, xhr) {
 
         },
@@ -83,10 +83,12 @@ function startTimer(){
         startTimerButton.style.cursor = "auto";
         pauseTimerButton.style.cursor = "pointer";
         startStopArray.push(startTime);
+        //alert(startTime);
         Session_Post_Request();
     }
     
 }
+
 function pauseTimer(){
     
     if (updatedTime == startTime){
@@ -111,6 +113,7 @@ function pauseTimer(){
         startTimer();
     }
 }
+
 function calc_Wage(){
     var len = startStopArray.length;
     var tot_time = 0;
@@ -163,6 +166,24 @@ function getShowTime(){
     timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds + ':' + milliseconds;
 }
 
+function ManualSubmit(){
+    if (startStopArray.length%2 == 1) return;
+    var  manual_time = jQuery("#manual_text").val() * 1000;
+    var now = new Date().getTime();
+    startStopArray.push(now - manual_time);
+    startStopArray.push(now);
+    Session_Post_Request();
+    savedTime+=manual_time;
+    Add_session_onDiv(manual_time, 0);
+    updatedTime =0, startTime = 0;
+    getShowTime();
+    calc_Wage();
+    manual_time = 0;
+
+}
+var swLocale  = jQuery("#sw-locale")[0].getAttribute("value");
+var swCurrency  = jQuery("#sw-currency")[0].getAttribute("value");
+
 jQuery('document').ready(function() {
     var postID  = jQuery("#post_ID")[0].getAttribute("value");
     jQuery.ajax('/wp-json/contractor-stopwatch/v1/get-data', {
@@ -195,21 +216,11 @@ jQuery('document').ready(function() {
             //alert('failure!');
         }
     });
-});
-function ManualSubmit(){
-    if (startStopArray.length%2 == 1) return;
-    var  manual_time = jQuery("#manual_text").val() * 1000;
-    var now = new Date().getTime();
-    startStopArray.push(now - manual_time);
-    startStopArray.push(now);
-    Session_Post_Request();
-    savedTime+=manual_time;
-    Add_session_onDiv(manual_time, 0);
-    updatedTime =0, startTime = 0;
-    getShowTime();
-    calc_Wage();
-    manual_time = 0;
 
-}
-var swLocale  = jQuery("#sw-locale")[0].getAttribute("value");
-var swCurrency  = jQuery("#sw-currency")[0].getAttribute("value");
+    //
+    jQuery("#create-woo-div").show();
+    var createWooLink;
+    createWooLink = "/?create-woo-stopwatch-order=" + postID;
+    jQuery("#create-woo-link").attr("href", createWooLink);
+
+});
